@@ -47,6 +47,8 @@ The exported catalog includes:
 git clone https://github.com/SDR7904/tab-catalog-browser-extention.git
 ```
 
+> **📦 Release:** Alternatively, you can download the latest release as a ZIP file (**[tab-catalog-v.1.1.0](https://github.com/SDR7904/tab-catalog-browser-extention/blob/main/tab-catalog-v.1.1.0.zip)**) and import it directly into your browser.
+
 2. Open your browser and navigate to:
 
 ```
@@ -58,8 +60,6 @@ chrome://extensions
 4. Click **Load unpacked**.
 
 5. Select the project folder.
-
-> **📦 Release:** Alternatively, you can download the latest release as a ZIP file (**[tab-catalog-v.1.1.0](https://github.com/SDR7904/tab-catalog-browser-extention/blob/main/tab-catalog-v.1.1.0.zip)**) and import it directly into your browser.
 
 The extension is now ready to use.
 
