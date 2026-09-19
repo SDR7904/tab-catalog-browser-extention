@@ -1,7 +1,8 @@
-# Local archive of older package copies (not part of the extension)
+﻿# Local archive of older package copies (not part of the extension)
 archive.zip
 
-# web-ext packaging output
+# Packaged release / web-ext output
+tab-catalog-v*.zip
 web-ext-artifacts/
 *.xpi
 
