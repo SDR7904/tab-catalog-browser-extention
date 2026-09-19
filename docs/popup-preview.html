@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Tab Catalog — Popup Preview</title>
+<link rel="stylesheet" href="../popup.css" />
+<style>
+  /* Frame the popup for README screenshots */
+  html, body {
+    width: auto;
+    height: 100%;
+    margin: 0;
+    background: #0c0c0e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .shot-frame {
+    width: 400px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+  }
+</style>
+</head>
+<body>
+  <div class="shot-frame">
+    <div class="app">
+      <header class="app-header">
+        <div class="tab-flag-logo">
+          <img src="../icons/icon128.png" alt="Tab Catalog" />
+        </div>
+        <div class="header-text">
+          <h1>Tab Catalog</h1>
+          <p id="tab-count">6 tabs open</p>
+        </div>
+      </header>
+
+      <div id="tab-list" class="tab-list" aria-live="polite">
+        <div class="tab-row">
+          <span class="tab-index">01</span>
+          <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="" />
+          <div class="tab-meta">
+            <p class="tab-title">SDR7904/tab-catalog-browser-extention</p>
+            <p class="tab-url">https://github.com/SDR7904/tab-catalog-browser-extention</p>
+          </div>
+        </div>
+        <div class="tab-row">
+          <span class="tab-index">02</span>
+          <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=developer.mozilla.org&sz=64" alt="" />
+          <div class="tab-meta">
+            <p class="tab-title">Browser extensions - MDN</p>
+            <p class="tab-url">https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions</p>
+          </div>
+        </div>
+        <div class="tab-row">
+          <span class="tab-index">03</span>
+          <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=addons.mozilla.org&sz=64" alt="" />
+          <div class="tab-meta">
+            <p class="tab-title">Firefox Add-ons</p>
+            <p class="tab-url">https://addons.mozilla.org/</p>
+          </div>
+        </div>
+        <div class="tab-row">
+          <span class="tab-index">04</span>
+          <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=chromewebstore.google.com&sz=64" alt="" />
+          <div class="tab-meta">
+            <p class="tab-title">Chrome Web Store</p>
+            <p class="tab-url">https://chromewebstore.google.com/</p>
+          </div>
+        </div>
+        <div class="tab-row">
+          <span class="tab-index">05</span>
+          <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=tailwindcss.com&sz=64" alt="" />
+          <div class="tab-meta">
+            <p class="tab-title">Tailwind CSS</p>
+            <p class="tab-url">https://tailwindcss.com/</p>
+          </div>
+        </div>
+        <div class="tab-row">
+          <span class="tab-index">06</span>
+          <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=sdr7904.ir&sz=64" alt="" />
+          <div class="tab-meta">
+            <p class="tab-title">SDR7904</p>
+            <p class="tab-url">https://SDR7904.ir</p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="app-footer">
+        <div class="format-toggle" role="group" aria-label="Export format">
+          <button class="format-btn active" type="button">HTML</button>
+          <button class="format-btn" type="button">Markdown</button>
+        </div>
+        <button class="btn-primary" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v13"/>
+            <path d="m7 11 5 5 5-5"/>
+            <path d="M5 21h14"/>
+          </svg>
+          <span>Download as HTML</span>
+        </button>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Local archive of older package copies (not part of the extension)
+archive.zip
+
+# web-ext packaging output
+web-ext-artifacts/
+*.xpi
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

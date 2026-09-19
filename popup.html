@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Tab Catalog</title>
+<!--
+  No external font/network requests here on purpose. This popup is a fresh
+  document load every time the toolbar icon is clicked, and any render-blocking
+  network request (Google Fonts previously lived here) stalls that first paint
+  for however long DNS/TLS/network takes — which is what caused the ~10s delay.
+  System fonts only: the popup must be able to render with zero network access.
+-->
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="tab-flag-logo">
+        <img src="icons/icon128.png" alt="Tab Catalog" />
+      </div>
+      <div class="header-text">
+        <h1>Tab Catalog</h1>
+        <p id="tab-count">Reading open tabs…</p>
+      </div>
+    </header>
+
+    <div id="tab-list" class="tab-list" aria-live="polite"></div>
+
+    <footer class="app-footer">
+      <div class="format-toggle" role="group" aria-label="Export format">
+        <button id="format-html" class="format-btn active" type="button">HTML</button>
+        <button id="format-md" class="format-btn" type="button">Markdown</button>
+      </div>
+      <button id="download-btn" class="btn-primary" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v13"/>
+          <path d="m7 11 5 5 5-5"/>
+          <path d="M5 21h14"/>
+        </svg>
+        <span id="download-label">Download as HTML</span>
+      </button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

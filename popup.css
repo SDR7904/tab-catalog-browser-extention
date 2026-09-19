@@ -1,0 +1,259 @@
+:root {
+  --zinc-950: #09090b;
+  --zinc-900: #18181b;
+  --zinc-850: #1f1f23;
+  --zinc-800: #27272a;
+  --zinc-700: #3f3f46;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-100: #f4f4f5;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-soft: rgba(251, 191, 36, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--zinc-950);
+  color: var(--zinc-100);
+  /* System font stack only — no network fetch required for the popup to render. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.font-mono-ui {
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+}
+
+body {
+  width: 400px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  max-height: 560px;
+}
+
+/* --- Header: shaped like an actual open browser tab sitting on the bar --- */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px 14px;
+  background: var(--zinc-900);
+  border: 1px solid var(--zinc-800);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  position: relative;
+}
+
+.app-header::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--amber-400);
+  border-radius: 2px;
+}
+
+.tab-flag-logo {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--zinc-800);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-flag-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.header-text p {
+  margin: 2px 0 0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  color: var(--zinc-400);
+}
+
+/* --- Tab list --- */
+.tab-list {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--zinc-950);
+  border-left: 1px solid var(--zinc-800);
+  border-right: 1px solid var(--zinc-800);
+  padding: 4px 0;
+}
+
+.tab-list::-webkit-scrollbar {
+  width: 6px;
+}
+.tab-list::-webkit-scrollbar-thumb {
+  background: var(--zinc-700);
+  border-radius: 3px;
+}
+.tab-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tab-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--zinc-900);
+  transition: background 0.12s ease;
+}
+
+.tab-row:hover {
+  background: var(--zinc-850);
+}
+
+.tab-index {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--amber-soft);
+  color: var(--amber-400);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-favicon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--zinc-800);
+  object-fit: cover;
+}
+
+.tab-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.tab-title {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--zinc-100);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-url {
+  margin: 1px 0 0;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  color: var(--zinc-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-list-empty {
+  padding: 32px 18px;
+  text-align: center;
+  color: var(--zinc-500);
+  font-size: 12.5px;
+}
+
+/* --- Footer / action bar --- */
+.app-footer {
+  padding: 14px;
+  background: var(--zinc-900);
+  border: 1px solid var(--zinc-800);
+  border-top: 1px solid var(--zinc-800);
+  border-radius: 0 0 14px 14px;
+}
+
+.format-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.format-btn {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 7px;
+  border: 1px solid var(--zinc-800);
+  background: var(--zinc-950);
+  color: var(--zinc-400);
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.format-btn:hover {
+  border-color: var(--zinc-700);
+}
+
+.format-btn.active {
+  background: var(--amber-soft);
+  color: var(--amber-400);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 9px;
+  background: var(--amber-400);
+  color: var(--zinc-950);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--amber-500);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  background: var(--zinc-800);
+  color: var(--zinc-500);
+  cursor: default;
+}
