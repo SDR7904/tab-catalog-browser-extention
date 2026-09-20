@@ -1,0 +1,13 @@
+{
+  "name": "tab-catalog",
+  "private": true,
+  "version": "1.2.1",
+  "description": "Dev tooling for Tab Catalog (tests + web-ext lint). Not required to load the extension.",
+  "scripts": {
+    "test": "node test/run.js",
+    "lint:ext": "web-ext lint"
+  },
+  "devDependencies": {
+    "web-ext": "^8.4.0"
+  }
+}

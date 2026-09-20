@@ -24,15 +24,43 @@
       </div>
     </header>
 
+    <div class="toolbar">
+      <label class="filter-wrap">
+        <span class="visually-hidden">Filter tabs</span>
+        <input
+          id="filter-input"
+          type="search"
+          placeholder="Filter by title or URL…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </label>
+      <div class="selection-bar">
+        <button id="select-all" class="link-btn" type="button">Select all</button>
+        <button id="select-none" class="link-btn" type="button">None</button>
+        <span id="selected-count" class="selected-count"></span>
+      </div>
+    </div>
+
     <div id="tab-list" class="tab-list" aria-live="polite"></div>
 
     <footer class="app-footer">
       <div class="format-toggle" role="group" aria-label="Export format">
-        <button id="format-html" class="format-btn active" type="button">HTML</button>
-        <button id="format-md" class="format-btn" type="button">Markdown</button>
+        <button id="format-html" class="format-btn active" type="button" aria-pressed="true">HTML</button>
+        <button id="format-md" class="format-btn" type="button" aria-pressed="false">Markdown</button>
+      </div>
+      <div class="options-row">
+        <label class="option-check">
+          <input id="all-windows" type="checkbox" />
+          <span>All windows</span>
+        </label>
+        <label class="option-check" title="When on, missing favicons are fetched from Google. Domains of open tabs are sent to that service.">
+          <input id="remote-favicons" type="checkbox" checked />
+          <span>Remote favicons</span>
+        </label>
       </div>
       <button id="download-btn" class="btn-primary" disabled>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 3v13"/>
           <path d="m7 11 5 5 5-5"/>
           <path d="M5 21h14"/>
@@ -42,6 +70,8 @@
     </footer>
   </div>
 
+  <script src="helpers.js"></script>
+  <script src="export-builders.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

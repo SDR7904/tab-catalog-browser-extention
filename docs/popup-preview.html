@@ -36,8 +36,22 @@
         </div>
       </header>
 
+      <div class="toolbar">
+        <label class="filter-wrap">
+          <span class="visually-hidden">Filter tabs</span>
+          <input type="search" placeholder="Filter by title or URL…" value="" readonly />
+        </label>
+        <div class="selection-bar">
+          <button class="link-btn" type="button">Select all</button>
+          <button class="link-btn" type="button">None</button>
+          <span class="selected-count">6 selected</span>
+        </div>
+      </div>
+
       <div id="tab-list" class="tab-list" aria-live="polite">
         <div class="tab-row">
+          <input class="tab-check" type="checkbox" checked />
+          <svg class="tab-pin" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z"/></svg>
           <span class="tab-index">01</span>
           <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="" />
           <div class="tab-meta">
@@ -46,6 +60,8 @@
           </div>
         </div>
         <div class="tab-row">
+          <input class="tab-check" type="checkbox" checked />
+          <span class="tab-pin" hidden style="width:14px;flex:0 0 auto"></span>
           <span class="tab-index">02</span>
           <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=developer.mozilla.org&sz=64" alt="" />
           <div class="tab-meta">
@@ -54,6 +70,8 @@
           </div>
         </div>
         <div class="tab-row">
+          <input class="tab-check" type="checkbox" checked />
+          <span class="tab-pin" hidden style="width:14px;flex:0 0 auto"></span>
           <span class="tab-index">03</span>
           <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=addons.mozilla.org&sz=64" alt="" />
           <div class="tab-meta">
@@ -62,6 +80,8 @@
           </div>
         </div>
         <div class="tab-row">
+          <input class="tab-check" type="checkbox" checked />
+          <span class="tab-pin" hidden style="width:14px;flex:0 0 auto"></span>
           <span class="tab-index">04</span>
           <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=chromewebstore.google.com&sz=64" alt="" />
           <div class="tab-meta">
@@ -70,6 +90,8 @@
           </div>
         </div>
         <div class="tab-row">
+          <input class="tab-check" type="checkbox" checked />
+          <span class="tab-pin" hidden style="width:14px;flex:0 0 auto"></span>
           <span class="tab-index">05</span>
           <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=tailwindcss.com&sz=64" alt="" />
           <div class="tab-meta">
@@ -78,6 +100,8 @@
           </div>
         </div>
         <div class="tab-row">
+          <input class="tab-check" type="checkbox" checked />
+          <span class="tab-pin" hidden style="width:14px;flex:0 0 auto"></span>
           <span class="tab-index">06</span>
           <img class="tab-favicon" src="https://www.google.com/s2/favicons?domain=sdr7904.ir&sz=64" alt="" />
           <div class="tab-meta">
@@ -89,8 +113,12 @@
 
       <footer class="app-footer">
         <div class="format-toggle" role="group" aria-label="Export format">
-          <button class="format-btn active" type="button">HTML</button>
-          <button class="format-btn" type="button">Markdown</button>
+          <button class="format-btn active" type="button" aria-pressed="true">HTML</button>
+          <button class="format-btn" type="button" aria-pressed="false">Markdown</button>
+        </div>
+        <div class="options-row">
+          <label class="option-check"><input type="checkbox" /><span>All windows</span></label>
+          <label class="option-check"><input type="checkbox" checked /><span>Remote favicons</span></label>
         </div>
         <button class="btn-primary" type="button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

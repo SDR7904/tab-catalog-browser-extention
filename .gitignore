@@ -1,10 +1,16 @@
-﻿# Local archive of older package copies (not part of the extension)
+﻿# Local codebase map (agents / maintainers; not part of the repo)
+structure.md
+
+# Local archive of older package copies (not part of the extension)
 archive.zip
 
 # Packaged release / web-ext output
 tab-catalog-v*.zip
 web-ext-artifacts/
 *.xpi
+
+# Dev tooling (tests / web-ext); not required to load the extension
+node_modules/
 
 # OS / editor
 .DS_Store

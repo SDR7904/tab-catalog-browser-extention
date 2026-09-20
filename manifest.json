@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Tab Catalog — Export Open Tabs",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Capture every open tab and export it as a beautifully designed, self-contained HTML or Markdown catalog.",
   "permissions": ["tabs"],
   "action": {

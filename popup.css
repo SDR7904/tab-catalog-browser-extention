@@ -10,6 +10,7 @@
   --amber-400: #fbbf24;
   --amber-500: #f59e0b;
   --amber-soft: rgba(251, 191, 36, 0.12);
+  --focus-ring: 0 0 0 2px var(--zinc-950), 0 0 0 4px var(--amber-400);
 }
 
 * {
@@ -30,6 +31,18 @@ body {
   font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
   width: 400px;
 }
@@ -37,7 +50,7 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  max-height: 560px;
+  max-height: 600px;
 }
 
 /* --- Header: shaped like an actual open browser tab sitting on the bar --- */
@@ -98,6 +111,78 @@ body {
   color: var(--zinc-400);
 }
 
+/* --- Toolbar: filter + selection --- */
+.toolbar {
+  padding: 10px 12px 6px;
+  background: var(--zinc-950);
+  border-left: 1px solid var(--zinc-800);
+  border-right: 1px solid var(--zinc-800);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-wrap {
+  display: block;
+}
+
+#filter-input {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--zinc-800);
+  background: var(--zinc-900);
+  color: var(--zinc-100);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 11.5px;
+}
+
+#filter-input::placeholder {
+  color: var(--zinc-500);
+}
+
+#filter-input:focus-visible {
+  outline: none;
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: var(--focus-ring);
+}
+
+.selection-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 2px;
+}
+
+.link-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--zinc-400);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link-btn:hover {
+  color: var(--amber-400);
+}
+
+.link-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 3px;
+}
+
+.selected-count {
+  margin-left: auto;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  color: var(--zinc-500);
+}
+
 /* --- Tab list --- */
 .tab-list {
   flex: 1;
@@ -106,6 +191,7 @@ body {
   border-left: 1px solid var(--zinc-800);
   border-right: 1px solid var(--zinc-800);
   padding: 4px 0;
+  min-height: 120px;
 }
 
 .tab-list::-webkit-scrollbar {
@@ -122,14 +208,45 @@ body {
 .tab-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
+  gap: 8px;
+  padding: 7px 12px;
   border-bottom: 1px solid var(--zinc-900);
   transition: background 0.12s ease;
+  cursor: pointer;
 }
 
 .tab-row:hover {
   background: var(--zinc-850);
+}
+
+.tab-row.is-deselected {
+  opacity: 0.45;
+}
+
+.tab-check {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--amber-400);
+  cursor: pointer;
+}
+
+.tab-check:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 2px;
+}
+
+.tab-pin {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  color: var(--amber-400);
+  opacity: 0.9;
+}
+
+.tab-pin[hidden] {
+  display: none;
 }
 
 .tab-index {
@@ -154,6 +271,10 @@ body {
   border-radius: 4px;
   background: var(--zinc-800);
   object-fit: cover;
+}
+
+.tab-favicon.is-missing {
+  visibility: hidden;
 }
 
 .tab-meta {
@@ -190,7 +311,7 @@ body {
 
 /* --- Footer / action bar --- */
 .app-footer {
-  padding: 14px;
+  padding: 12px 14px 14px;
   background: var(--zinc-900);
   border: 1px solid var(--zinc-800);
   border-top: 1px solid var(--zinc-800);
@@ -200,7 +321,7 @@ body {
 .format-toggle {
   display: flex;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .format-btn {
@@ -224,6 +345,41 @@ body {
   background: var(--amber-soft);
   color: var(--amber-400);
   border-color: rgba(251, 191, 36, 0.3);
+}
+
+.format-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.option-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--zinc-400);
+  cursor: pointer;
+  user-select: none;
+}
+
+.option-check input {
+  width: 13px;
+  height: 13px;
+  accent-color: var(--amber-400);
+  cursor: pointer;
+}
+
+.option-check input:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 2px;
 }
 
 .btn-primary {
@@ -250,6 +406,11 @@ body {
 
 .btn-primary:active:not(:disabled) {
   transform: scale(0.98);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 .btn-primary:disabled {
